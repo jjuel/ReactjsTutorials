@@ -19709,7 +19709,7 @@
 	    }, {
 	        key: 'render',
 	        value: function render() {
-	            return _react2['default'].createElement(ChannelSection, { channels: this.state.channels, addChannel: this.addChannel.bind(this), setChannel: this.setChannel.bind(this) });
+	            return _react2['default'].createElement(_channelsChannelSectionJsx2['default'], { channels: this.state.channels, addChannel: this.addChannel.bind(this), setChannel: this.setChannel.bind(this) });
 	        }
 	    }]);
 
