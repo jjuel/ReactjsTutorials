@@ -12,7 +12,7 @@ class UserForm extends Component {
     render() {
         return (
             <form onSubmit={this.onSubmit.bind(this)}>
-                <div class='form-group'>
+                <div className='form-group'>
                     <input className='form-control' placeholder='Set Your Name...' type='text' ref='userName'></input>
                 </div>
             </form>
