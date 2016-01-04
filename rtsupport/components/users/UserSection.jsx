@@ -10,7 +10,7 @@ class UserSection extends Component {
                     <strong>Users</strong>
                 </div>
 
-                <div className='panel-body channels'>
+                <div className='panel-body users'>
                     <UserList {...this.props} />
                     <UserForm {...this.props} />
                 </div>

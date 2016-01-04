@@ -7,12 +7,12 @@ class MessageSection extends Component {
         let {activeChannel} = this.props;
 
         return (
-            <div className='support panel panel-primary'>
+            <div className='messages-container panel panel-default'>
                 <div className='panel-heading'>
                     <strong>{activeChannel.name}</strong>
                 </div>
 
-                <div className='panel-body channels'>
+                <div className='panel-body messages'>
                     <MessageList {...this.props} />
                     <MessageForm {...this.props} />
                 </div>

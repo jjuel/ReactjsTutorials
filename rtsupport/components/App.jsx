@@ -55,11 +55,12 @@ class App extends Component {
                         {...this.state}
                         setUserName={this.setUserName.bind(this)}
                     />
-                    <MessageSection
-                        {...this.state}
-                        addMessage={this.addMessage.bind(this)}
-                    />
                 </div>
+
+                <MessageSection
+                    {...this.state}
+                    addMessage={this.addMessage.bind(this)}
+                />
             </div>
         )
     }
