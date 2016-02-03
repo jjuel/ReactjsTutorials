@@ -79,7 +79,7 @@ class App extends Component {
     }
 
     addChannel(name) {
-        this.socket.emit('add channel', {name});
+        this.socket.emit('channel add', {name});
     }
 
     setChannel(activeChannel) {
