@@ -74,6 +74,8 @@ func (client *Client) Close() {
 	}
 
 	close(client.send)
+
+	r.Table("user").Get(client.id).Delete().Exec(client.session)
 }
 
 func (client *Client) NewStopChannel(stopKey int) chan bool {

@@ -30,10 +30,10 @@ type User struct {
 
 type ChannelMessage struct {
 	ID        string    `gorethink:"id,omitempty"`
-	ChannelID string    `gorethink:"channel_id"`
+	ChannelID string    `gorethink:"channelId"`
 	Body      string    `gorethink:"body"`
 	Author    string    `gorethink:"author"`
-	CreatedAt time.Time `gorethink:"created_at"`
+	CreatedAt time.Time `gorethink:"createdAt"`
 }
 
 func addChannel(client *Client, data interface{}) {
@@ -127,7 +127,7 @@ func addChannelMessage(client *Client, data interface{}) {
 func subscribeChannelMessage(client *Client, data interface{}) {
 	go func() {
 		eventData := data.(map[string]interface{})
-		val, ok := eventData["channel_id"]
+		val, ok := eventData["channelId"]
 		if !ok {
 			return
 		}
@@ -138,8 +138,8 @@ func subscribeChannelMessage(client *Client, data interface{}) {
 
 		stop := client.NewStopChannel(MessageStop)
 		cursor, err := r.Table("message").
-			OrderBy(r.OrderByOpts{Index: r.Desc("created_at")}).
-			Filter(r.Row.Field("channel_id")).Eq(channelID).
+			OrderBy(r.OrderByOpts{Index: r.Desc("createdAt")}).
+			Filter(r.Row.Field("channelId").Eq(channelID)).
 			Changes(r.ChangesOpts{IncludeInitial: true}).
 			Run(client.session)
 		if err != nil {
